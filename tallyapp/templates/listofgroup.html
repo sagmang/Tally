@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<div class="row container-fluid p-0 mx-0">
+    <div class="col-sm-4 m-1 p-0"></div>
+    <div class="col-sm-4 m-1 p-0" style=" background-color:rgba(0,0,0,0.2);height: 875px; padding-bottom: 10px;">
+        <!-- <a href="javascript:history.go(-1);" class="close">+</a> -->
+    <div  class="bg-info text-light">List of Groups</div>
+           <div>
+               <table>
+                <br>
+                
+                <tr>
+                    <div style="text-align: right;margin-right: 20px;"><a href="">Create</a></div>   
+                    
+                    </tr>
+                    <tr>
+                        <div style="text-align: right;margin-right: 20px;"><a href="{% url 'altercompanyview' %}">Back</a></div>   
+                        
+                    </tr>
+                    <hr style="width:100%;text-align:left;margin-left:0">
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Bank Accounts</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Bank OCC A/c</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Bank OD A/c</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Branch / Divisions</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Capital Account</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Cash-in-Hand</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Current Assets</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Current Liabilities</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Deposits(Asset)</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Direct Expenses</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Direct Incomes</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Duties & Taxes</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Expenses (Direct)</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Expenses (Indirect)</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Fixed Assets</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Income (Direct)</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Income (Indirect)</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Indirect Expenses</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Indirect Incomes</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Investments</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Loans & Advances (Asset)</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Loan (Liability)</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Misc Expenses (ASSET)</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Provisions</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Purchase Accounts</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Reverses & Surplus</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Retained Earnings</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Sales Accounts</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Secured Loans</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Stock-in-Hand</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Sundry Creditors</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Sundry Debtors</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Suspense A/c</a></div>   
+                    </tr>
+                    <tr>
+                        <div style="margin-left: 25px;"><a href="">Unsecured Loans</a></div>   
+                    </tr>
+               </table>
+           </div>
+        </div>
+    </div>
+   
+
+{% endblock %}
