@@ -13,8 +13,9 @@ urlpatterns = [
     path('features/<int:pk>',views.features,name='features'),
     path('creategroup/<int:pk>',views.creategroup,name='creategroup'),
     # path('features',views.features,name='features'),
-
     path('altercompanyview',views.altercompanyview,name='altercompanyview'),
+
+    path('alter',views.alter,name='alter'),
     path('altercompany_view',views.altercompany_view,name='altercompany_view'),
     path('listofgroup',views.listofgroup,name='listofgroup'),
     path('listofledgers',views.listofledgers,name='listofledgers'),

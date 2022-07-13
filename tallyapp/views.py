@@ -278,11 +278,16 @@ def creategroup(request,pk):
     
 def altercompanyview(request):
     com=Companies.objects.all()
-    return render(request,'altercompany.html',{'com':com})
+    return render(request,'altercompanyview.html' ,{'com':com})
+
+def alter(request):
+    com=Companies.objects.all()
+    return render(request,'altercompany.html' ,{'com':com})
+
 
 def altercompany_view(request):
     com=Companies.objects.all()
-    return render(request,'altercompanyview.html',{'com':com})
+    return render(request,'altercompanyview1.html',{'com':com})
 
 def listofgroup(request):
     com=Companies.objects.all()
@@ -323,7 +328,7 @@ def altercompany(request,pk):
             # currency_symbol=request.POST['currency_symbol']
             # formal_name=request.POST['formal_name']
         comp.save()
-        return redirect('altercompanyview')
+        return redirect('altercompanyview', {'comp':comp})
     return render(request,'editcompany.html',{'comp':comp})
 
 def selectcompany(request):
