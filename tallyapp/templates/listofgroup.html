@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
 {% block body %}
 
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function getVal(route){
+           window.location.href=route+"/"+document.getElementById('cid').innerHTML;
+                   
+        }
+</script>
 <div class="row container-fluid p-0 mx-0">
     <div class="col-sm-4 m-1 p-0"></div>
     <div class="col-sm-4 m-1 p-0" style=" background-color:rgba(0,0,0,0.2);height: 875px; padding-bottom: 10px;">
@@ -13,7 +18,11 @@
                 <br>
                 
                 <tr>
-                    <div style="text-align: right;margin-right: 20px;"><a href="">Create</a></div>   
+                    <div style="text-align: right;margin-right: 20px;">
+                        
+                            <a href="{% url 'create_group_1' %}">Create</a>
+                        
+                    </div>   
                     
                     </tr>
                     <tr>
@@ -34,6 +43,44 @@
            </div>
         </div>
     </div>
+    <script>
+                    function setName(comp, id){
+                        document.getElementById('compName').innerHTML=comp;
+                        //document.getElementById('compId').innerHTML=id;
+                        //alert(document.getElementById('compName').innerHTML);
+                        //localStorage.clear();
+                        //document.getElementById('cid1').value=id;
+                        document.getElementById('cid').innerHTML= id;
+                        //localStorage.setItem("compId",id);
+                        //localStorage.setItem("compId1",id);
+                        //alert(localStorage.getItem("compId"));
+                        //sessionStorage.setItem("cc",'adsad');
+                        //localStorage.setItem("compName",comp);
+                    }
+                </script>
+    <form id="myForm" action="" method="post" class="p-3">
+        {% csrf_token %}
+        <div>
+            <table id="table">
+            {% for i in comp %}
+            {%if i.active == 1 %}
+            <tr>
+                <td>
+            <a style="cursor:pointer;" onclick="setName('{{i.name}}','{{i.id}}');">{{i.name}}</a><br>
+        </td>
+        <td>
+            <a  style="cursor:pointer;color:rgba(0,0,0,0.2);font-size:2px;" onclick="setName('{{i.name}}','{{i.id}}');">{{i.id}}</a><br>
+        </td>        
+        </tr>
+            {% endif %}
+            {% endfor %}
+            </table>
+        </div>
+                    
+
+                    
+    
+    </form>
    
 
 {% endblock %}

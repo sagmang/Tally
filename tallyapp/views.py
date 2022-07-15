@@ -5,7 +5,8 @@ from django.contrib import messages
 from django.http import JsonResponse
 def index(request):
     comp=Companies.objects.all()
-    return render(request,'index.html',{'comp':comp})
+    grp=Group.objects.all()
+    return render(request,'index.html',{'comp':comp, 'grp':grp})
 
 def company(request):
     com=Companies.objects.all()
@@ -397,6 +398,7 @@ def altercompany_view(request):
 
 def listofgroup(request):
     com=Companies.objects.all()
+    #cmp=Companies.objects.get(id=pk)
     grp=Group.objects.all()
     return render(request,'listofgroup.html',{'com':com, 'grp':grp})
 
@@ -419,7 +421,7 @@ def listofvouchertypes(request):
     vhr=Voucher.objects.all()
     return render(request,'listofvouchertypes.html',{'com':com, 'vhr':vhr})
 
-def alter_create_group(request,pk):
+def alter_create_group(request,pk): 
     cmp=Companies.objects.get(id=pk)
     if request.method == 'POST':
         cmp=Companies.objects.get(id=pk)
@@ -448,4 +450,10 @@ def alter_create_group(request,pk):
             mdl.save()
         # return redirect('index')
     grup=Group.objects.filter(company_id=cmp)
-    return render(request,'alter_create_group.html',{'cmp':cmp,'grup':grup})
+    return render(request,'alter_create_group.html',{'cmp':cmp,'grup':grup}) 
+
+def create_group_1(request):
+    return redirect('alter_create_group')
+
+    
+
