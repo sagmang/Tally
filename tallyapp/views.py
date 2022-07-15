@@ -280,31 +280,6 @@ def altercompanyview(request):
     com=Companies.objects.all()
     return render(request,'altercompanyview.html' ,{'com':com})
 
-def alter(request):
-    com=Companies.objects.all()
-    return render(request,'altercompany.html' ,{'com':com})
-
-
-def altercompany_view(request):
-    com=Companies.objects.all()
-    return render(request,'altercompanyview1.html',{'com':com})
-
-def listofgroup(request):
-    com=Companies.objects.all()
-    return render(request,'listofgroup.html',{'com':com})
-
-def listofledgers(request):
-    com=Companies.objects.all()
-    return render(request,'listofledgers.html',{'com':com})
-
-def listofcurrencies(request):
-    com=Companies.objects.all()
-    return render(request,'listofcurrencies.html',{'com':com})
-
-def listofvouchertypes(request):
-    com=Companies.objects.all()
-    return render(request,'listofvouchertypes.html',{'com':com})
-
 
 def altercompany(request,pk):
     comp=Companies.objects.get(id=pk)
@@ -410,3 +385,67 @@ def enable(request,pk):
     c.active=True
     c.save()
     return redirect('shutcompany')
+
+
+def alter(request):
+    com=Companies.objects.all()
+    return render(request,'altercompany.html')
+
+def altercompany_view(request):
+    com=Companies.objects.all()
+    return render(request,'altercompanyview1.html',{'com':com})
+
+def listofgroup(request):
+    com=Companies.objects.all()
+    grp=Group.objects.all()
+    return render(request,'listofgroup.html',{'com':com, 'grp':grp})
+
+def listofledgers(request):
+    com=Companies.objects.all()
+    lgr=Ledger.objects.all()
+    return render(request,'listofledgers.html',{'com':com, 'lgr':lgr})
+
+def listofcostcentres(request):
+    com=Companies.objects.all()
+    return render(request,'listofcostcentres.html',{'com':com})
+
+def listofcurrencies(request):
+    com=Companies.objects.all()
+    cur=Currency.objects.all()
+    return render(request,'listofcurrencies.html',{'com':com, 'cur':cur})
+
+def listofvouchertypes(request):
+    com=Companies.objects.all()
+    vhr=Voucher.objects.all()
+    return render(request,'listofvouchertypes.html',{'com':com, 'vhr':vhr})
+
+def alter_create_group(request,pk):
+    cmp=Companies.objects.get(id=pk)
+    if request.method == 'POST':
+        cmp=Companies.objects.get(id=pk)
+        gname = request.POST['gname']
+        alia = request.POST['alia']
+        under = request.POST['under']
+        sub_ledger = request.POST['sub_ledger']
+        nett = request.POST['nee']
+        calc = request.POST['cal']
+        meth = request.POST['meth']
+        grp=Group.objects.filter(name=gname)
+        if grp:
+            # messages.info(request,'Company name already exists!!')
+            pass
+        else:
+            mdl = Group(
+                name=gname,
+                alias=alia,
+                under=under,
+                sub_ledger=sub_ledger,
+                debit_credit=nett,
+                calculation=calc,
+                used_purchase=meth,
+                company=cmp
+            )
+            mdl.save()
+        # return redirect('index')
+    grup=Group.objects.filter(company_id=cmp)
+    return render(request,'alter_create_group.html',{'cmp':cmp,'grup':grup})
