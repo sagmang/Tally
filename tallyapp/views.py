@@ -3,6 +3,9 @@ from django.shortcuts import render,redirect
 from .models import *
 from django.contrib import messages
 from django.http import JsonResponse
+from django.shortcuts import render, redirect, HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+
 def index(request):
     comp=Companies.objects.all()
     grp=Group.objects.all()
@@ -280,6 +283,7 @@ def creategroup(request,pk):
 def altercompanyview(request):
     com=Companies.objects.all()
     return render(request,'altercompanyview.html' ,{'com':com})
+    #return HttpResponseRedirect(reverse('altercompanyview'))
 
 
 def altercompany(request,pk):
@@ -389,6 +393,8 @@ def enable(request,pk):
 
 
 def alter(request):
+    # cmp=Companies.objects.get(id=pk)
+    # print(cmp)
     com=Companies.objects.all()
     return render(request,'altercompany.html')
 
@@ -415,6 +421,10 @@ def listofcurrencies(request):
     com=Companies.objects.all()
     cur=Currency.objects.all()
     return render(request,'listofcurrencies.html',{'com':com, 'cur':cur})
+def alter_ratesofexchange(request):
+    cmp=Companies.objects.all()
+    cur=Currency.objects.all()
+    return render(request,'alter_ratesofexchange.html',{'cmp':cmp,'cur':cur})
 
 def listofvouchertypes(request):
     com=Companies.objects.all()
@@ -450,10 +460,15 @@ def alter_create_group(request,pk):
             mdl.save()
         # return redirect('index')
     grup=Group.objects.filter(company_id=cmp)
-    return render(request,'alter_create_group.html',{'cmp':cmp,'grup':grup}) 
+    #return render(request,'alter_create_group.html',{'cmp':cmp,'grup':grup}) 
+    return HttpResponseRedirect(reverse('listofgroup'))
 
 def create_group_1(request):
     return redirect('alter_create_group')
+
+def alter_company_gst(request):
+    com=Companies.objects.all()
+    return render(request,'alter_company_gst.html',{'com':com})
 
     
 

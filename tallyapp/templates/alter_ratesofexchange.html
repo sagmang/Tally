@@ -1,8 +1,6 @@
-
-
-    {% extends 'base.html' %}
-    {% block body %}
-        {% load static %}
+{% extends 'base.html' %}
+{% block body %}
+    {% load static %}
         <style>
             .flexy{
                 display: flex;
@@ -86,7 +84,7 @@
                       <!-- currencylist -->
                       <td class="text-left"> 
                         {% for i in cur %}
-                        <a  >{{i.symbol}} ( {{i.formal_name}})</a><br>
+                        <a>{{i.symbol}} ( {{i.formal_name}})</a><br>
                         {% endfor %}
         
         
