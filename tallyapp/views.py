@@ -431,44 +431,9 @@ def listofvouchertypes(request):
     vhr=Voucher.objects.all()
     return render(request,'listofvouchertypes.html',{'com':com, 'vhr':vhr})
 
-def alter_create_group(request,pk): 
-    cmp=Companies.objects.get(id=pk)
-    if request.method == 'POST':
-        cmp=Companies.objects.get(id=pk)
-        gname = request.POST['gname']
-        alia = request.POST['alia']
-        under = request.POST['under']
-        sub_ledger = request.POST['sub_ledger']
-        nett = request.POST['nee']
-        calc = request.POST['cal']
-        meth = request.POST['meth']
-        grp=Group.objects.filter(name=gname)
-        if grp:
-            # messages.info(request,'Company name already exists!!')
-            pass
-        else:
-            mdl = Group(
-                name=gname,
-                alias=alia,
-                under=under,
-                sub_ledger=sub_ledger,
-                debit_credit=nett,
-                calculation=calc,
-                used_purchase=meth,
-                company=cmp
-            )
-            mdl.save()
-        # return redirect('index')
-    grup=Group.objects.filter(company_id=cmp)
-    #return render(request,'alter_create_group.html',{'cmp':cmp,'grup':grup}) 
-    return HttpResponseRedirect(reverse('listofgroup'))
 
-def create_group_1(request):
-    return redirect('alter_create_group')
 
-def alter_company_gst(request):
-    com=Companies.objects.all()
-    return render(request,'alter_company_gst.html',{'com':com})
+
 
     
 

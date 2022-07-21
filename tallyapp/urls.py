@@ -36,8 +36,5 @@ urlpatterns = [
     path('listofcurrencies',views.listofcurrencies,name='listofcurrencies'),
     path('alter_ratesofexchange',views.alter_ratesofexchange,name='alter_ratesofexchange'),
     path('listofvouchertypes',views.listofvouchertypes,name='listofvouchertypes'),
-    path('alter_create_group/<int:pk>',views.alter_create_group,name='alter_create_group'),
-    path('create_group_1',views.create_group_1,name='create_group_1'),
-    path('alter_company_gst',views.alter_company_gst,name='alter_company_gst'),
     
 ]
